@@ -55,7 +55,7 @@ export class FetchData extends Component {
             {contents}
 
             <button onClick={this.populateData}>Refresh</button>
-                    <button onClick={this.resetMatches}>Reset Matches</button>
+                    <button onClick={this.resetMatches}>Reset/Initialise Matches</button>
                     <button disabled={!context.loggedIn} onClick={()=>this.play(context.authHeader())}>
               Play Now
             </button>
