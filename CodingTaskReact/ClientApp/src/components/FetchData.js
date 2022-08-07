@@ -59,12 +59,13 @@ export class FetchData extends Component {
                     <button disabled={!context.loggedIn} onClick={()=>this.play(context.authHeader())}>
               Play Now
             </button>
+            <button disabled={!context.loggedIn} onClick={context.doLogout}>Logout</button>
           </div>
         )}
       </AuthContext.Consumer>
     );
   }
-
+  
   async resetMatches() {
     await fetch("api/reset-matches");
     await this.populateData();

@@ -8,6 +8,10 @@ function AuthProvider({ children }) {
   const [loggedInCreds, setLoggedInCreds] = useState({});
 
 
+  const doLogout = ()=>{
+    setLoggedIn(false);
+    setLoggedInCreds({});
+  }
 
   const doLogin = async (username, password) => {
     const res = await axios.post("api/login", { username: username, password: password });
@@ -25,7 +29,7 @@ function AuthProvider({ children }) {
     return { 'Authorization': 'Basic ' + btoa(loggedInCreds.username + ":" + loggedInCreds.password)};
   }
 
-    const value = { authHeader, doLogin, loggedIn }
+    const value = { authHeader, doLogin, loggedIn, doLogout }
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
